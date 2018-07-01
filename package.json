@@ -1,0 +1,7 @@
+{
+  "name": "Stock-Bot",
+  "version": "0.0.1",
+  "dependencies": {
+    "discord.io": "Woor/discord.io#gateway_v6"
+  }
+}
