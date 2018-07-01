@@ -1,6 +1,13 @@
 {
   "name": "Stock-Bot",
+  "description": "Stock Bot for Discord",
   "version": "0.0.1",
+  "license": "GPL-3.0-only"
+  "author" : "Aidan Wardman"
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/aidanwardman/Stock-Bot"
+  }
   "dependencies": {
     "discord.io": "Woor/discord.io#gateway_v6"
   }
