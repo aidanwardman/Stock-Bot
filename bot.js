@@ -32,7 +32,8 @@ function scrape(url,channelID){
     request(url, function(error, response, html){
         if(!error){
             var $ = cheerio.load(html);
-            var price = $('span[ng-show="share.last_price"]').html();
+			var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',$);
+            //var price = $('span[ng-show="share.last_price"]').html();
 			console.log(price);
 			bot.sendMessage({
 				to: channelID,
@@ -45,6 +46,26 @@ function scrape(url,channelID){
 			});
 		}
 	});
+}
+
+function extract(prefix, suffix, s){
+	var i = s.indexOf(prefix);
+	if (i >= 0) {
+		s = s.substring(i + prefix.length);
+	}
+	else {
+		return '';
+	}
+	if (suffix) {
+		i = s.indexOf(suffix);
+		if (i >= 0) {
+			s = s.substring(0, i);
+		}
+		else {
+		  return '';
+		}
+	}
+	return s;
 }
 
 
