@@ -19,6 +19,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 		var market = message.substr(0,3);
 		var code = message.substr(4,3);
 		var url = "https://www.asx.com.au/asx/share-price-research/company/"+code;
+		console.log(url);
 		scrape(url,channelID);
 		/*bot.sendMessage({
             to: channelID,
@@ -32,6 +33,7 @@ function scrape(url,channelID){
         if(!error){
             var $ = cheerio.load(html);
             var price = $('span[ng-show="share.last_price"]').html();
+			console.log(price);
 			bot.sendMessage({
 				to: channelID,
 				message: price
