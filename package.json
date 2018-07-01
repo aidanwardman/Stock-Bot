@@ -9,6 +9,8 @@
 	"url" : "https://github.com/aidanwardman/Stock-Bot"
   },
   "dependencies": {
-    "discord.io": "Woor/discord.io#gateway_v6"
+    "discord.io": "Woor/discord.io#gateway_v6",
+	"request": "latest",
+	"cheerio": "latest"
   }
 }

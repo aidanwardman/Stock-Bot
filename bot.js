@@ -1,5 +1,8 @@
 var Discord = require('discord.io');
 var auth = require('./credentials.json');
+var fs = require('fs');
+var request = require('request');
+var cheerio = require('cheerio');
 
 var bot = new Discord.Client({
     token: auth.token,
@@ -15,9 +18,36 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (rxp.test(message)){
 		var market = message.substr(0,3);
 		var code = message.substr(4,3);
-		bot.sendMessage({
+		var url = "https://www.asx.com.au/asx/share-price-research/company/"+code;
+		scrape(url,channelID);
+		/*bot.sendMessage({
             to: channelID,
             message: "Extracting company code ("+code+") from stock market ("+market+")"
-        });
+        });*/
 	}
 });
+
+function scrape(url){
+    request(url, function(error, response, html){
+        if(!error){
+            var $ = cheerio.load(html);
+            var price = $('span[ng-show=share.last_price]').html();
+			bot.sendMessage({
+				to: channelID,
+				message: price
+			});
+        }else{
+			bot.sendMessage({
+				to: channelID,
+				message: "Failed to get price"
+			});
+		}
+	}
+}
+
+
+//https://www.asx.com.au/asx/share-price-research/company/A2M
+
+//<span ng-show="share.last_price" class="ng-binding">10.520</span>
+
+//<small ng-switch-default="" class="price-date ng-binding ng-scope">29 Jun 2018</small>
