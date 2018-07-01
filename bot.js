@@ -42,7 +42,7 @@ function scrape(url){
 				message: "Failed to get price"
 			});
 		}
-	}
+	});
 }
 
 
