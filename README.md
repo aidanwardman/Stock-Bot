@@ -11,7 +11,22 @@ npm install
 
 ## Configuration
 
-> To Do
+- Create a Discord account
+- Go to https://discordapp.com/developers/applications/me/create to create a new discord app
+- Once your app is created click on **Create a Bot User**
+- Create a file called **credentials.json** with the following structure
+```
+{
+	"token":"ABCDEFG"
+}
+``` 
+- Replace **ABCDEFG** with your discord App Bot User Token
+
+## Running
+```
+npm bot.json
+```
+- Invite your bot to your discord server
 
 ## Usage
 
