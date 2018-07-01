@@ -51,7 +51,7 @@ function scrape(url,channelID){
 }
 
 function extract(prefix, suffix, s){
-	console.log("Running Extract");
+	console.log("Running Extract",prefix,suffix);
 	var i = s.indexOf(prefix);
 	if (i >= 0) {
 		s = s.substring(i + prefix.length);
