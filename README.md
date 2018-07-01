@@ -1,12 +1,11 @@
 # Stock Bot
-
 Stock Bot (once finished) gives you the ability to quickly check a stock value from (eventually) any available stock market globally, directly from Discord.
-
 ## Installation
 ### Create a Discord App
 - Create a Discord account
 - Go to https://discordapp.com/developers/applications/me/create to create a new discord app
 - Once your app is created click on **Create a Bot User**
+- Invite your bot to your discord server
 ### Run the install
 ```
 git clone https://github.com/aidanwardman/Stock-Bot
@@ -21,15 +20,10 @@ npm install
 }
 ``` 
 - Replace **ABCDEFG** with your discord **App Bot User Token**
-
 ## Running
 ```
 npm bot.json
 ```
-- Invite your bot to your discord server
-
 ## Usage
-
 Once you have the bot turned on and linked up you can use it by typing [**Stock Market**]:[**Stock Code**]
-
 > asx:a2m

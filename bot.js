@@ -11,10 +11,14 @@ bot.on('ready', function() {
 });
 
 bot.on('message', function(user, userID, channelID, message, event) {
-    if (message === "ping") {
-        bot.sendMessage({
+	var rxp = new RegExp(/^(asx:)[a-z0-9]{3}/);
+	if (rxp.test(message)){
+		console.log("Setting XP Modifier");
+		var market = message.substr(0,2);
+		var code = message.substr(4,6);
+		bot.sendMessage({
             to: channelID,
-            message: "pong"
+            message: "Extracting company code ("+code+") from stock market ("+market+")"
         });
-    }
+	}
 });
