@@ -36,7 +36,7 @@ function scrape(url,channelID){
             //var $ = cheerio.load(html);
 			var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
             //var price = $('span[ng-show="share.last_price"]').html();
-			console.log(price);
+			console.log("Price: "+price);
 			bot.sendMessage({
 				to: channelID,
 				message: price
@@ -51,6 +51,7 @@ function scrape(url,channelID){
 }
 
 function extract(prefix, suffix, s){
+	console.log("Running Extract");
 	var i = s.indexOf(prefix);
 	if (i >= 0) {
 		s = s.substring(i + prefix.length);
@@ -67,6 +68,7 @@ function extract(prefix, suffix, s){
 		  return '';
 		}
 	}
+	console.log(s);
 	return s;
 }
 
