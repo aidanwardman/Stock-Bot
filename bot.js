@@ -31,7 +31,7 @@ function scrape(url){
     request(url, function(error, response, html){
         if(!error){
             var $ = cheerio.load(html);
-            var price = $('span[ng-show=share.last_price]').html();
+            var price = $('span[ng-show="share.last_price"]').html();
 			bot.sendMessage({
 				to: channelID,
 				message: price
