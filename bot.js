@@ -31,8 +31,8 @@ bot.on('message', function(user, userID, channelID, message, event) {
 function scrape(url,channelID){
     request(url, function(error, response, html){
         if(!error){
-            var $ = cheerio.load(html);
-			var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',$);
+            //var $ = cheerio.load(html);
+			var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
             //var price = $('span[ng-show="share.last_price"]').html();
 			console.log(price);
 			bot.sendMessage({
