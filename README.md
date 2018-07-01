@@ -22,7 +22,7 @@ npm install
 - Replace **ABCDEFG** with your discord **App Bot User Token**
 ## Running
 ```
-npm bot.json
+node bot.json
 ```
 ## Usage
 Once you have the bot turned on and linked up you can use it by typing [**Stock Market**]:[**Stock Code**]
