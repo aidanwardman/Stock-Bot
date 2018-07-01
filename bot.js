@@ -27,7 +27,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	}
 });
 
-function scrape(url){
+function scrape(url,channelID){
     request(url, function(error, response, html){
         if(!error){
             var $ = cheerio.load(html);
