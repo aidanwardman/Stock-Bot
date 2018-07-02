@@ -37,7 +37,7 @@ function scrape(url,channelID){
             //var $ = cheerio.load(html);
 			//var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
             var rows = html.split(/\r?\n/);
-			var price = rows[rows.length - 1];
+			var price = rows[rows.length - 2];
 			//var price = $('.watchlist-last').html();
 			console.log("Price: "+price);
 			bot.sendMessage({
