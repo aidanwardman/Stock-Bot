@@ -18,7 +18,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	if (rxp.test(message)){
 		var market = message.substr(0,3);
 		var code = message.substr(4,3);
-		var url = "https://www.asx.com.au/asx/share-price-research/company/"+code;
+		var url = "https://hotcopper.com.au/asx/"+code;
 		console.log(url);
 		scrape(url,channelID);
 		/*bot.sendMessage({
@@ -34,9 +34,9 @@ function scrape(url,channelID){
 		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 		console.log(html);
         if(!error){
-            //var $ = cheerio.load(html);
-			var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
-            //var price = $('span[ng-show="share.last_price"]').html();
+            var $ = cheerio.load(html);
+			//var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
+            var price = $('.watchlist-last').html();
 			console.log("Price: "+price);
 			bot.sendMessage({
 				to: channelID,
