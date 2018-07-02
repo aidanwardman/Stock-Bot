@@ -30,7 +30,7 @@ function scrape(url,channelID,code,market){
 		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         if(!error){
             var rows = html.split(/\r?\n/);
-			var price = code+": $"+rows[rows.length - 2];
+			var price = market+":"+code+" - $"+rows[rows.length - 2];
 			console.log("Price: "+price);
 			bot.sendMessage({
 				to: channelID,
