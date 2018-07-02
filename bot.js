@@ -32,7 +32,7 @@ function scrape(url,channelID){
     request(url, function(error, response, html){
 		console.log('error:', error); // Print the error if one occurred
 		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-		console.log(html);
+		//console.log(html);
         if(!error){
             //var $ = cheerio.load(html);
 			var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
@@ -54,6 +54,7 @@ function scrape(url,channelID){
 function extract(prefix, suffix, s){
 	console.log("Running Extract",prefix,suffix);
 	var i = s.indexOf(prefix);
+	console.log("index 1: "+i);
 	if (i >= 0) {
 		s = s.substring(i + prefix.length);
 	}
@@ -62,6 +63,7 @@ function extract(prefix, suffix, s){
 	}
 	if (suffix) {
 		i = s.indexOf(suffix);
+		console.log("index 2: "+i);
 		if (i >= 0) {
 			s = s.substring(0, i);
 		}
