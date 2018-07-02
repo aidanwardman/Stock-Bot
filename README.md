@@ -1,5 +1,6 @@
 # Stock Bot
-Stock Bot (once finished) gives you the ability to quickly check a stock value from (eventually) any available stock market globally, directly from Discord.
+Stock Bot gives you the ability to quickly check a stock value from any available stock market globally, directly from Discord.
+> Stock Bot currently only works on the ASX (Australian Stock Exchange)
 ## Installation
 ### Create a Discord App
 - Create a Discord account
