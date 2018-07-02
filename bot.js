@@ -28,14 +28,22 @@ function scrape(url,channelID,code,market){
     request(url, function(error, response, html){
 		console.log('error:', error); // Print the error if one occurred
 		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        if(!error){
+        var reg = new RegExp(/[a-zA-Z/);
+		if(!error){
             var rows = html.split(/\r?\n/);
-			var price = market+":"+code+" - $"+rows[rows.length - 2];
-			console.log("Price: "+price);
-			bot.sendMessage({
+			if(!rex.test(rows[rows.length - 2])){
+				var price = market+":"+code+" - $"+rows[rows.length - 2];
+				console.log("Price: "+price);
+				bot.sendMessage({
+					to: channelID,
+					message: price
+				});
+			}else{
+				bot.sendMessage({
 				to: channelID,
-				message: price
+				message: "Invalid Stock"
 			});
+			}
         }else{
 			bot.sendMessage({
 				to: channelID,
