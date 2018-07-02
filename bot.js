@@ -39,7 +39,7 @@ function scrape(url,channelID){
             var rows = html.split(/\r?\n/);
 			var price = rows[rows.length - 2];
 			//var price = $('.watchlist-last').html();
-			console.log("Price: "+price);
+			console.log("Price: $"+price);
 			bot.sendMessage({
 				to: channelID,
 				message: price
