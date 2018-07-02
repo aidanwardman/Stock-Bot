@@ -32,7 +32,7 @@ function scrape(url,channelID){
     request(url, function(error, response, html){
 		console.log('error:', error); // Print the error if one occurred
 		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-		//console.log(html);
+		console.log(html);
         if(!error){
             //var $ = cheerio.load(html);
 			var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
