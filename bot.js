@@ -17,8 +17,8 @@ bot.on('message', function(user, userID, channelID, message, event) {
 	var rxp = new RegExp(/^(asx:)[a-z0-9]{3}/);
 	if (rxp.test(message)){
 		var market = message.substr(0,3);
-		var code = message.substr(4,3);
-		var url = "https://hotcopper.com.au/asx/"+code;
+		var code = message.substr(4,3).toUpperCase();
+		var url = "https://finance.google.com/finance/getprices?p=1d&i=60&x=ASX&f=c&q="+code;
 		console.log(url);
 		scrape(url,channelID);
 		/*bot.sendMessage({
@@ -32,11 +32,13 @@ function scrape(url,channelID){
     request(url, function(error, response, html){
 		console.log('error:', error); // Print the error if one occurred
 		console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-		console.log(html);
+		//console.log(html);
         if(!error){
-            var $ = cheerio.load(html);
+            //var $ = cheerio.load(html);
 			//var price = extract('<span ng-show="share.last_price" class="ng-binding">','</span>',html);
-            var price = $('.watchlist-last').html();
+            var rows = html.split(/\r?\n/);
+			var price = rows[rows.length - 1];
+			//var price = $('.watchlist-last').html();
 			console.log("Price: "+price);
 			bot.sendMessage({
 				to: channelID,
