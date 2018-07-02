@@ -14,7 +14,7 @@ bot.on('ready', function() {
 });
 
 bot.on('message', function(user, userID, channelID, message, event) {
-	var rxp = new RegExp(/^(asx:)[a-z0-9]{3}/);
+	var rxp = new RegExp(/^(asx:)[a-z0-9]{3}/i);
 	if (rxp.test(message)){
 		var market = message.substr(0,3).toUpperCase();
 		var code = message.substr(4,3).toUpperCase();
