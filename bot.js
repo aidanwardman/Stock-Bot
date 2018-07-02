@@ -32,7 +32,7 @@ function scrape(url,channelID,code,market){
 		if(!error){
             var rows = html.split(/\r?\n/);
 			if(!reg.test(rows[rows.length - 2])){
-				var price = code+" is currently trading for **$"+rows[rows.length - 2]+"** on the "+market;
+				var price = "**"+code+"** is currently trading for **$"+rows[rows.length - 2]+"** on the **"+market+"**";
 				console.log("Price: "+price);
 				bot.sendMessage({
 					to: channelID,
