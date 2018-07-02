@@ -31,7 +31,7 @@ function scrape(url,channelID,code,market){
         var reg = new RegExp(/[a-zA-Z]/);
 		if(!error){
             var rows = html.split(/\r?\n/);
-			if(!rex.test(rows[rows.length - 2])){
+			if(!reg.test(rows[rows.length - 2])){
 				var price = market+":"+code+" - $"+rows[rows.length - 2];
 				console.log("Price: "+price);
 				bot.sendMessage({
